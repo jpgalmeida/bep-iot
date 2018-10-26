@@ -1,0 +1,39 @@
+{
+    "blockchain": {
+      "type": "fabric",
+      "config": "benchmark/drm/fabric.json"
+    },
+    "command" : {
+      "start": "echo start",
+      "end" : "echo end"
+    },
+    "test": {
+      "name": "drm",
+      "description" : "Benchmark for DRM scenario",
+      "clients": {
+        "type": "local",
+        "number": 1
+      },
+      "rounds": [
+        {
+          "label" : "init",
+          "txNumber" : [200],
+          "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}],
+          "callback" : "benchmark/drm/init.js"
+        },
+        {
+          "label" : "query",
+          "txNumber" : [200],
+          "rateControl" : [{"type": "fixed-rate", "opts": {"tps" : 100}}],
+          "callback" : "benchmark/drm/query.js"
+        }]
+    },
+    "monitor": {
+      "type": "docker",
+      "docker":{
+        "name": ["peer0.org1.example.com", "peer1.org1.example.com", "peer2.org1.example.com", "peer3.org1.example.com", "orderer.example.com"]
+      },
+      "interval": 1
+    }
+  }
+  

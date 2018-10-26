@@ -1,0 +1,53 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+services:
+
+  bft-replica:
+    image: jpgalmeida/bftsmart-replica-4
+    environment:
+      - BFTSMART_ORDERER_MSPID=OrdererMSP,Peers1MSP,Peers2MSP
+      - BFTSMART_REPLICA_CERTIFICATE=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts/peer.pem
+      - BFTSMART_REPLICA_PRIVKEY=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore/key.pem
+      - BFTSMART_PARELLELISM=10
+      - BFTSMART_BLOCKS_PER_THREAD=10000
+      - BFTSMART_RECEIVERS=1000,2000
+    volumes:
+      - ../crypto-config/bftsmart/keystore:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore
+      - ../crypto-config/bftsmart/signcerts:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts
+    ports:
+      - '11000'
+
+  bft-replica-biz:
+    image: jpgalmeida/bftsmart-replica-byz-4
+    environment:
+      - BFTSMART_ORDERER_MSPID=OrdererMSP,Peers1MSP,Peers2MSP
+      - BFTSMART_REPLICA_CERTIFICATE=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts/peer.pem
+      - BFTSMART_REPLICA_PRIVKEY=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore/key.pem
+      - BFTSMART_PARELLELISM=10
+      - BFTSMART_BLOCKS_PER_THREAD=10000
+      - BFTSMART_RECEIVERS=1000,2000
+    volumes:
+      - ../crypto-config/bftsmart/keystore:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore
+      - ../crypto-config/bftsmart/signcerts:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts
+    ports:
+      - '11000'
+
+  workload:
+    image: bftsmart/fabric-tools:x86_64-1.1.1
+    environment:
+      - BFTSMART_ORDERER_MSPID=OrdererMSP,Peers1MSP,Peers2MSP
+      - BFTSMART_REPLICA_CERTIFICATE=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts/peer.pem
+      - BFTSMART_REPLICA_PRIVKEY=/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore/key.pem
+      - BFTSMART_PARELLELISM=10
+      - BFTSMART_BLOCKS_PER_THREAD=10000
+      - BFTSMART_RECEIVERS=1000,2000
+    volumes:
+      - ../crypto-config/bftsmart/keystore:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/keystore
+      - ../crypto-config/bftsmart/signcerts:/opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart/config/sampleconfig/signcerts
+    ports:
+      - '11000'

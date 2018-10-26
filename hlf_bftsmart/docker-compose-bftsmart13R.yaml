@@ -1,0 +1,201 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+networks:
+  osn:
+
+services:
+
+  bft-replica0:
+    dns_search: .
+    container_name: bft-replica0
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 0
+    networks:
+      - osn
+
+
+  bft-replica1:
+    dns_search: .
+    container_name: bft-replica1
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 1
+    networks:
+      - osn
+
+
+  bft-replica2:
+    dns_search: .
+    container_name: bft-replica2
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 2
+    networks:
+      - osn
+
+  bft-replica3:
+    dns_search: .
+    container_name: bft-replica3
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 3
+    networks:
+      - osn
+
+  bft-replica4:
+    dns_search: .
+    container_name: bft-replica4
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 4
+    networks:
+      - osn
+
+  bft-replica5:
+    dns_search: .
+    container_name: bft-replica5
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 5
+    networks:
+      - osn
+
+  bft-replica6:
+    dns_search: .
+    container_name: bft-replica6
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 6
+    networks:
+      - osn
+
+  bft-replica7:
+    dns_search: .
+    container_name: bft-replica7
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 7
+    networks:
+      - osn
+
+  bft-replica8:
+    dns_search: .
+    container_name: bft-replica8
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 8
+    networks:
+      - osn
+
+  bft-replica9:
+    dns_search: .
+    container_name: bft-replica9
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica-biz
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 9
+    networks:
+      - osn
+
+  bft-replica10:
+    dns_search: .
+    container_name: bft-replica10
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica-biz
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 10
+    networks:
+      - osn
+
+  bft-replica11:
+    dns_search: .
+    container_name: bft-replica11
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica-biz
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 11
+    networks:
+      - osn
+
+  bft-replica12:
+    dns_search: .
+    container_name: bft-replica12
+    extends:
+      file: base/docker-compose-bftsmart-base.yaml
+      service: bft-replica-biz
+    environment:
+      - BFTSMART_REPLICAS=0 bft-replica0 11000,1 bft-replica1 11000,2 bft-replica2 11000,3 bft-replica3 11000, 4 bft-replica4 11000, 5 bft-replica5 11000, 6 bft-replica6 11000, 7 bft-replica7 11000, 8 bft-replica8 11000, 9 bft-replica9 11000, 10 bft-replica10 11000, 11 bft-replica11 11000, 12 bft-replica12 11000
+    working_dir: /opt/gopath/src/github.com/hyperledger/fabric/hyperledger-bftsmart
+    command: ./startReplica.sh 12
+    networks:
+      - osn
+
+  orderer.example.com:
+    environment:
+      - BFTSMART_FRONTEND_ID=1000
+    command: ./orderer-bftfrontend.sh
+    depends_on:
+      - bft-replica0
+      - bft-replica1
+      - bft-replica2
+      - bft-replica3
+      - bft-replica4
+      - bft-replica5
+      - bft-replica6
+      - bft-replica7
+      - bft-replica8
+      - bft-replica9
+      - bft-replica10
+      - bft-replica11
+      - bft-replica12

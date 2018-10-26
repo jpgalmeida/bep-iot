@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        {{sector ? 'Rental Details' : 'Add Sector'}}
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios,core">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <form #sectorForm="ngForm" (ngSubmit)="save(sectorForm.value)">
+      <input type="hidden" name="form" [(ngModel)]="sector.form">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input placeholder="Sector ID" name="sectorId" type="text"
+                         required [(ngModel)]="sector.sectorId" #sectorId></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Price" name="price" type="text"
+                         required [(ngModel)]="sector.price" #price></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <button ion-button color="primary" full type="submit"
+                  [disabled]="!sectorForm.form.valid">Save</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-content>

@@ -1,0 +1,1 @@
+[31m2018-05-09 13:43:23.487 WEST [main] main -> ERRO 001[0m Cannot run peer because error when setting up MSP of type bccsp from directory /home/jalmeida/go/src/github.com/hyperledger/fabric/sampleconfig/msp: signing identity expired 4291h36m23.487940553s ago

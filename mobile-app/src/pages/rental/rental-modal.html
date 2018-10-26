@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        {{rental ? 'Rental Details' : 'Add Rental'}}
+      </ion-title>
+      <ion-buttons start>
+        <button ion-button (click)="dismiss()">
+          <span ion-text color="primary" showWhen="ios,core">Cancel</span>
+          <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+    <form #rentalForm="ngForm" (ngSubmit)="save(rentalForm.value)">
+      <input type="hidden" name="form" [(ngModel)]="rental.form">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+            <ion-item>
+              <ion-input placeholder="Locker ID" name="lockerid" type="text"
+                         required [(ngModel)]="rental.lockerid" #lockerid></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Sector" name="sector" type="text"
+                         required [(ngModel)]="rental.sector" #duration></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Duration" name="duration" type="text"
+                         required [(ngModel)]="rental.duration" #duration></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <!-- <div class="alert alert-danger">{{error}}</div> -->
+          <button ion-button color="primary" full type="submit"
+                  [disabled]="!rentalForm.form.valid">Save</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-content>

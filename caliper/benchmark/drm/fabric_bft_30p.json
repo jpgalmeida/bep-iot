@@ -1,0 +1,243 @@
+{
+    "fabric": {
+      "cryptodir": "../hlf_bftsmart/crypto-config",
+      "network": {
+        "orderer": {
+          "url": "grpcs://164.132.162.211:7050",
+          "mspid": "OrdererMSP",
+          "msp": "../hlf_bftsmart/crypto-config/ordererOrganizations/example.com/msp/",
+          "server-hostname": "orderer.example.com",
+          "tls_cacerts": "../hlf_bftsmart/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+        },
+        "org1": {
+          "name": "peerOrg1",
+          "mspid": "Peers1MSP",
+          "msp": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/msp/",
+          "ca": {
+            "url": "https://164.132.162.211:7054",
+            "name": "ca-org1"
+          },
+          "peer1": {
+            "requests": "grpcs://164.132.162.211:7051",
+            "events": "grpcs://164.132.162.211:7053",
+            "server-hostname": "peer0.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+          },
+          "peer2": {
+            "requests": "grpcs://164.132.162.211:8051",
+            "events": "grpcs://164.132.162.211:8053",
+            "server-hostname": "peer1.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
+          },
+          "peer3": {
+            "requests": "grpcs://164.132.162.211:9051",
+            "events": "grpcs://164.132.162.211:9053",
+            "server-hostname": "peer2.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer2.org1.example.com/tls/ca.crt"
+          },
+          "peer4": {
+            "requests": "grpcs://164.132.162.211:10051",
+            "events": "grpcs://164.132.162.211:10053",
+            "server-hostname": "peer3.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer3.org1.example.com/tls/ca.crt"
+          },
+          "peer5": {
+            "requests": "grpcs://164.132.162.211:11051",
+            "events": "grpcs://164.132.162.211:11053",
+            "server-hostname": "peer4.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer4.org1.example.com/tls/ca.crt"
+          },
+          "peer6": {
+            "requests": "grpcs://164.132.162.211:12051",
+            "events": "grpcs://164.132.162.211:12053",
+            "server-hostname": "peer5.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer5.org1.example.com/tls/ca.crt"
+          },
+          "peer7": {
+            "requests": "grpcs://164.132.162.211:13051",
+            "events": "grpcs://164.132.162.211:13053",
+            "server-hostname": "peer6.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer6.org1.example.com/tls/ca.crt"
+          },
+          "peer8": {
+            "requests": "grpcs://164.132.162.211:14051",
+            "events": "grpcs://164.132.162.211:14053",
+            "server-hostname": "peer7.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer7.org1.example.com/tls/ca.crt"
+          },
+          "peer9": {
+            "requests": "grpcs://164.132.162.211:15051",
+            "events": "grpcs://164.132.162.211:15053",
+            "server-hostname": "peer8.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer8.org1.example.com/tls/ca.crt"
+          },
+          "peer10": {
+            "requests": "grpcs://164.132.162.211:16051",
+            "events": "grpcs://164.132.162.211:16053",
+            "server-hostname": "peer9.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer9.org1.example.com/tls/ca.crt"
+          },
+          "peer11": {
+            "requests": "grpcs://164.132.162.211:17051",
+            "events": "grpcs://164.132.162.211:17053",
+            "server-hostname": "peer10.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer10.org1.example.com/tls/ca.crt"
+          },
+          "peer12": {
+            "requests": "grpcs://164.132.162.211:18051",
+            "events": "grpcs://164.132.162.211:18053",
+            "server-hostname": "peer11.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer11.org1.example.com/tls/ca.crt"
+          },
+          "peer13": {
+            "requests": "grpcs://164.132.162.211:19051",
+            "events": "grpcs://164.132.162.211:19053",
+            "server-hostname": "peer12.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer12.org1.example.com/tls/ca.crt"
+          },
+          "peer14": {
+            "requests": "grpcs://164.132.162.211:20051",
+            "events": "grpcs://164.132.162.211:20053",
+            "server-hostname": "peer13.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer13.org1.example.com/tls/ca.crt"
+          },
+          "peer15": {
+            "requests": "grpcs://164.132.162.211:21051",
+            "events": "grpcs://164.132.162.211:21053",
+            "server-hostname": "peer14.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer14.org1.example.com/tls/ca.crt"
+          },
+          "peer16": {
+            "requests": "grpcs://164.132.162.211:22051",
+            "events": "grpcs://164.132.162.211:22053",
+            "server-hostname": "peer15.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer15.org1.example.com/tls/ca.crt"
+          },
+          "peer17": {
+            "requests": "grpcs://164.132.162.211:23051",
+            "events": "grpcs://164.132.162.211:23053",
+            "server-hostname": "peer16.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer16.org1.example.com/tls/ca.crt"
+          },
+          "peer18": {
+            "requests": "grpcs://164.132.162.211:24051",
+            "events": "grpcs://164.132.162.211:24053",
+            "server-hostname": "peer17.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer17.org1.example.com/tls/ca.crt"
+          },
+          "peer19": {
+            "requests": "grpcs://164.132.162.211:25051",
+            "events": "grpcs://164.132.162.211:25053",
+            "server-hostname": "peer18.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer18.org1.example.com/tls/ca.crt"
+          },
+          "peer20": {
+            "requests": "grpcs://164.132.162.211:26051",
+            "events": "grpcs://164.132.162.211:26053",
+            "server-hostname": "peer19.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer19.org1.example.com/tls/ca.crt"
+          },
+          "peer21": {
+            "requests": "grpcs://164.132.162.211:27051",
+            "events": "grpcs://164.132.162.211:27053",
+            "server-hostname": "peer20.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer20.org1.example.com/tls/ca.crt"
+          },
+          "peer22": {
+            "requests": "grpcs://164.132.162.211:28051",
+            "events": "grpcs://164.132.162.211:28053",
+            "server-hostname": "peer21.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer21.org1.example.com/tls/ca.crt"
+          },
+          "peer23": {
+            "requests": "grpcs://164.132.162.211:29051",
+            "events": "grpcs://164.132.162.211:29053",
+            "server-hostname": "peer22.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer22.org1.example.com/tls/ca.crt"
+          },
+          "peer24": {
+            "requests": "grpcs://164.132.162.211:30051",
+            "events": "grpcs://164.132.162.211:30053",
+            "server-hostname": "peer23.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer23.org1.example.com/tls/ca.crt"
+          },
+          "peer25": {
+            "requests": "grpcs://164.132.162.211:31051",
+            "events": "grpcs://164.132.162.211:31053",
+            "server-hostname": "peer24.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer24.org1.example.com/tls/ca.crt"
+          },
+          "peer26": {
+            "requests": "grpcs://164.132.162.211:32051",
+            "events": "grpcs://164.132.162.211:32053",
+            "server-hostname": "peer25.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer25.org1.example.com/tls/ca.crt"
+          },
+          "peer27": {
+            "requests": "grpcs://164.132.162.211:33051",
+            "events": "grpcs://164.132.162.211:33053",
+            "server-hostname": "peer26.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer26.org1.example.com/tls/ca.crt"
+          },
+          "peer28": {
+            "requests": "grpcs://164.132.162.211:34051",
+            "events": "grpcs://164.132.162.211:34053",
+            "server-hostname": "peer27.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer27.org1.example.com/tls/ca.crt"
+          },
+          "peer29": {
+            "requests": "grpcs://164.132.162.211:35051",
+            "events": "grpcs://164.132.162.211:35053",
+            "server-hostname": "peer28.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer28.org1.example.com/tls/ca.crt"
+          },
+          "peer30": {
+            "requests": "grpcs://164.132.162.211:36051",
+            "events": "grpcs://164.132.162.211:36053",
+            "server-hostname": "peer29.org1.example.com",
+            "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer29.org1.example.com/tls/ca.crt"
+          }
+  
+  
+  
+        }
+      },
+      "channel": [
+        {
+          "name": "mychannel",
+          "deployed": false,
+          "config": "../hlf_bftsmart/channel-artifacts/mychannel.tx",
+          "organizations": ["org1"]
+        }
+      ],
+      "chaincodes": [{"id": "price_chaincode_go", "path": "contract/fabric/price", "version": "1", "language":"golang", "channel": "mychannel"}],
+      "endorsement-policy": {
+        "identities": [
+          {
+            "role": {
+              "name": "member",
+              "mspId": "Peers1MSP"
+            }
+          },
+          {
+            "role": {
+              "name": "admin",
+              "mspId": "Peers1MSP"
+            }
+          }
+        ],
+        "policy": { "1-of": [{"signed-by": 0}, {"signed-by": 1}]}
+      },
+      "context": {
+        "init": "mychannel",
+        "query": "mychannel"
+      }
+    },
+    "info" : {
+      "Version": "1.1.0",
+      "Size": "30 Peers",
+      "Orderer": "Solo",
+      "Distribution": "Single Host"
+    }
+  }
+  

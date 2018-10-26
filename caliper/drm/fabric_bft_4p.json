@@ -1,0 +1,85 @@
+{
+  "fabric": {
+    "cryptodir": "../hlf_bftsmart/crypto-config",
+    "network": {
+      "orderer": {
+        "url": "grpcs://127.0.0.1:7050",
+        "mspid": "OrdererMSP",
+        "msp": "../hlf_bftsmart/crypto-config/ordererOrganizations/example.com/msp/",
+        "server-hostname": "orderer.example.com",
+        "tls_cacerts": "../hlf_bftsmart/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/ca.crt"
+      },
+      "org1": {
+        "name": "peerOrg1",
+        "mspid": "Peers1MSP",
+        "msp": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/msp/",
+        "ca": {
+          "url": "https://127.0.0.1:7054",
+          "name": "ca-org1"
+        },
+        "peer1": {
+          "requests": "grpcs://127.0.0.1:7051",
+          "events": "grpcs://127.0.0.1:7053",
+          "server-hostname": "peer0.org1.example.com",
+          "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt"
+        },
+        "peer2": {
+          "requests": "grpcs://127.0.0.1:8051",
+          "events": "grpcs://127.0.0.1:8053",
+          "server-hostname": "peer1.org1.example.com",
+          "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer1.org1.example.com/tls/ca.crt"
+        },
+        "peer3": {
+          "requests": "grpcs://127.0.0.1:9051",
+          "events": "grpcs://127.0.0.1:7053",
+          "server-hostname": "peer2.org1.example.com",
+          "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer2.org1.example.com/tls/ca.crt"
+        },
+        "peer4": {
+          "requests": "grpcs://127.0.0.1:10051",
+          "events": "grpcs://127.0.0.1:10053",
+          "server-hostname": "peer3.org1.example.com",
+          "tls_cacerts": "../hlf_bftsmart/crypto-config/peerOrganizations/org1.example.com/peers/peer3.org1.example.com/tls/ca.crt"
+        }
+
+
+      }
+    },
+    "channel": [
+      {
+        "name": "mychannel",
+        "deployed": false,
+        "config": "../hlf_bftsmart/channel-artifacts/mychannel.tx",
+        "organizations": ["org1"]
+      }
+    ],
+    "chaincodes": [{"id": "price_chaincode_go", "path": "contract/fabric/price", "version": "1", "language":"golang", "channel": "mychannel"}],
+    "endorsement-policy": {
+      "identities": [
+        {
+          "role": {
+            "name": "member",
+            "mspId": "Peers1MSP"
+          }
+        },
+        {
+          "role": {
+            "name": "admin",
+            "mspId": "Peers1MSP"
+          }
+        }
+      ],
+      "policy": { "1-of": [{"signed-by": 0}, {"signed-by": 1}]}
+    },
+    "context": {
+      "init": "mychannel",
+      "query": "mychannel"
+    }
+  },
+  "info" : {
+    "Version": "1.1.0",
+    "Size": "4 Peers",
+    "Orderer": "Solo",
+    "Distribution": "Single Host"
+  }
+}

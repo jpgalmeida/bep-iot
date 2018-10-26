@@ -1,0 +1,5 @@
+channel-artifacts
+crypto-config
+client/nodejs/.hfc-keystore
+client/nodejs/node_modules
+client/nodejs/package-lock.json

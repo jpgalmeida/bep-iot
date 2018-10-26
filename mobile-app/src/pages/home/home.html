@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to Lockr!</h2>
+  <form #loginForm="ngForm" (ngSubmit)="save(loginForm.value)">
+    <input type="hidden" name="form" [(ngModel)]="login.form">
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+          <ion-item>
+            <ion-input placeholder="User ID" name="userid" type="text"
+                       required [(ngModel)]="login.userid" #userid></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input placeholder="Password" name="password" type="password"
+                       required [(ngModel)]="login.password" #password></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button color="primary" full type="submit"
+                [disabled]="!loginForm.form.valid">Login</button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

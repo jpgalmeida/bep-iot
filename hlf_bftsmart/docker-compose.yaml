@@ -1,0 +1,61 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+volumes:
+  ca_peerOrg1:
+  orderer.example.com:
+  peer0.org1.example.com:
+  peer1.org1.example.com:
+
+networks:
+  hlf:
+  osn:
+
+services:
+  ca_peerOrg1:
+    image: hyperledger/fabric-ca:x86_64-1.1.0
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -n ca_peerOrg1 --registry.maxenrollments -1 --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/*_sk -b admin:adminpw --tls.enabled --tls.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --tls.keyfile /etc/hyperledger/fabric-ca-server-config/*_sk -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca_peerOrg1
+
+  orderer.example.com:
+    dns_search: .
+    container_name: orderer.example.com
+    extends:
+      file: base/docker-compose-base.yaml
+      service: orderer.example.com
+    networks:
+      - hlf
+      - osn
+
+  peer0.org1.example.com:
+    dns_search: .
+    container_name: peer0.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+
+  peer1.org1.example.com:
+    dns_search: .
+    container_name: peer1.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com

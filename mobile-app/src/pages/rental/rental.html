@@ -1,0 +1,31 @@
+<!--
+  Generated template for the RentalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Rentals</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openSectorList()" color="primary">
+        <ion-icon name="md-search"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openModal()" color="primary">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <!-- <ion-item *ngFor="let rental of rentalsAux"> -->
+    <ion-item *ngFor="let rental of rentalsAux; let i = index" (click)="endRental(rental.sector+rental.lockerid)">
+      <h2>Locker {{rental.lockerid}} for {{rental.duration}} minutes</h2>
+      <h3>Price: {{rental.price}} €</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

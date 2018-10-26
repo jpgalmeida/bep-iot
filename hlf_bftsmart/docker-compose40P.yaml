@@ -1,0 +1,555 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+
+version: '2'
+
+volumes:
+  ca_peerOrg1:
+  orderer.example.com:
+  peer0.org1.example.com:
+  peer1.org1.example.com:
+  peer2.org1.example.com:
+  peer3.org1.example.com:
+  peer4.org1.example.com:
+  peer5.org1.example.com:
+  peer6.org1.example.com:
+  peer7.org1.example.com:
+  peer8.org1.example.com:
+  peer9.org1.example.com:
+  peer10.org1.example.com:
+  peer11.org1.example.com:
+  peer12.org1.example.com:
+  peer13.org1.example.com:
+  peer14.org1.example.com:
+  peer15.org1.example.com:
+  peer16.org1.example.com:
+  peer17.org1.example.com:
+  peer18.org1.example.com:
+  peer19.org1.example.com:
+  peer20.org1.example.com:
+  peer21.org1.example.com:
+  peer22.org1.example.com:
+  peer23.org1.example.com:
+  peer24.org1.example.com:
+  peer25.org1.example.com:
+  peer26.org1.example.com:
+  peer27.org1.example.com:
+  peer28.org1.example.com:
+  peer29.org1.example.com:
+  peer30.org1.example.com:
+  peer31.org1.example.com:
+  peer32.org1.example.com:
+  peer33.org1.example.com:
+  peer34.org1.example.com:
+  peer35.org1.example.com:
+  peer36.org1.example.com:
+  peer37.org1.example.com:
+  peer38.org1.example.com:
+  peer39.org1.example.com:
+
+networks:
+  hlf:
+  osn:
+
+services:
+  ca_peerOrg1:
+    image: hyperledger/fabric-ca:x86_64-1.1.0
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -n ca_peerOrg1 --registry.maxenrollments -1 --ca.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --ca.keyfile /etc/hyperledger/fabric-ca-server-config/*_sk -b admin:adminpw --tls.enabled --tls.certfile /etc/hyperledger/fabric-ca-server-config/ca.org1.example.com-cert.pem --tls.keyfile /etc/hyperledger/fabric-ca-server-config/*_sk -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/org1.example.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca_peerOrg1
+
+  orderer.example.com:
+    dns_search: .
+    container_name: orderer.example.com
+    extends:
+      file: base/docker-compose-base.yaml
+      service: orderer.example.com
+    networks:
+      - hlf
+      - osn
+
+  peer0.org1.example.com:
+    dns_search: .
+    container_name: peer0.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer0.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+
+  peer1.org1.example.com:
+    dns_search: .
+    container_name: peer1.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer1.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer2.org1.example.com:
+    dns_search: .
+    container_name: peer2.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer2.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer3.org1.example.com:
+    dns_search: .
+    container_name: peer3.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer3.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer4.org1.example.com:
+    dns_search: .
+    container_name: peer4.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer4.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer5.org1.example.com:
+    dns_search: .
+    container_name: peer5.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer5.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer6.org1.example.com:
+    dns_search: .
+    container_name: peer6.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer6.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer7.org1.example.com:
+    dns_search: .
+    container_name: peer7.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer7.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer8.org1.example.com:
+    dns_search: .
+    container_name: peer8.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer8.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer9.org1.example.com:
+    dns_search: .
+    container_name: peer9.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer9.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer10.org1.example.com:
+    dns_search: .
+    container_name: peer10.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer10.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer11.org1.example.com:
+    dns_search: .
+    container_name: peer11.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer11.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer12.org1.example.com:
+    dns_search: .
+    container_name: peer12.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer12.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer13.org1.example.com:
+    dns_search: .
+    container_name: peer13.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer13.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer14.org1.example.com:
+    dns_search: .
+    container_name: peer14.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer14.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer15.org1.example.com:
+    dns_search: .
+    container_name: peer15.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer15.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer16.org1.example.com:
+    dns_search: .
+    container_name: peer16.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer16.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer17.org1.example.com:
+    dns_search: .
+    container_name: peer17.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer17.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer18.org1.example.com:
+    dns_search: .
+    container_name: peer18.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer18.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer19.org1.example.com:
+    dns_search: .
+    container_name: peer19.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer19.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer20.org1.example.com:
+    dns_search: .
+    container_name: peer20.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer20.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer21.org1.example.com:
+    dns_search: .
+    container_name: peer21.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer21.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer22.org1.example.com:
+    dns_search: .
+    container_name: peer22.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer22.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer23.org1.example.com:
+    dns_search: .
+    container_name: peer23.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer23.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer24.org1.example.com:
+    dns_search: .
+    container_name: peer24.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer24.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer25.org1.example.com:
+    dns_search: .
+    container_name: peer25.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer25.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer26.org1.example.com:
+    dns_search: .
+    container_name: peer26.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer26.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer27.org1.example.com:
+    dns_search: .
+    container_name: peer27.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer27.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer28.org1.example.com:
+    dns_search: .
+    container_name: peer28.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer28.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer29.org1.example.com:
+    dns_search: .
+    container_name: peer29.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer29.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer30.org1.example.com:
+    dns_search: .
+    container_name: peer30.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer30.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer31.org1.example.com:
+    dns_search: .
+    container_name: peer31.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer31.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer32.org1.example.com:
+    dns_search: .
+    container_name: peer32.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer32.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer33.org1.example.com:
+    dns_search: .
+    container_name: peer33.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer33.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer34.org1.example.com:
+    dns_search: .
+    container_name: peer34.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer34.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer35.org1.example.com:
+    dns_search: .
+    container_name: peer35.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer35.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer36.org1.example.com:
+    dns_search: .
+    container_name: peer36.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer36.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer37.org1.example.com:
+    dns_search: .
+    container_name: peer37.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer37.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer38.org1.example.com:
+    dns_search: .
+    container_name: peer38.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer38.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
+
+  peer39.org1.example.com:
+    dns_search: .
+    container_name: peer39.org1.example.com
+    extends:
+      file:  base/docker-compose-base.yaml
+      service: peer39.org1.example.com
+    networks:
+      - hlf
+    depends_on:
+      - orderer.example.com
+      - peer0.org1.example.com
